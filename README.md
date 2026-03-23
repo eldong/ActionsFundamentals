@@ -4,6 +4,8 @@ Repo for the `GitHub Actions Fundamentals` training.
 
 Udpate One
 
+Update skip
+
 ## 👉 Objectives
 
 - Understand the __basic components__ and vocabulary of GitHub Actions
