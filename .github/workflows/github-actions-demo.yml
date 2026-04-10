@@ -1,22 +1,26 @@
-name: CI Build for Docker Action
+name: GitHub Actions Demo
+
 on:
   push:
     branches: [ main ]
-    paths: [ hello-world-docker-action/** ]
+    paths-ignore: [.github/**]
+  pull_request:
+    branches: [ main ]
+  schedule:
+    - cron: '15 6 * * 0'
   workflow_dispatch:
 
 jobs:
-  test-action:
+  Build:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v3.3.0
+      - run: |
+          echo "🎉 The job was triggered by event: ${{ github.event_name }}"
+          echo "🔎 The name of your branch is ${{ github.ref }} and your repository is ."
 
-      - name: Run my own container action
-        id: hello-action
-        uses: ./hello-world-docker-action
-        with:
-          who-to-greet: '@wulfland'
+      - uses: actions/checkout@v3.3.0
 
-      - name: Output time set in the container
-        run: echo "The time was ${{ steps.hello-action.outputs.time }} when the action said hello"
+      - name: List files in the repository
+        run: |
+          echo "The repository ${{ github.repository }} contains the following files:"
+          tree
