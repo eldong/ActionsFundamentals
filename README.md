@@ -2,9 +2,6 @@
 
 Repo for the `GitHub Actions Fundamentals` training.
 
-Udpate One
-
-Update skip
 
 ## 👉 Objectives
 
